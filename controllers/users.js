@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const dotenv = require("dotenv");
-dotenv.config();
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
@@ -24,6 +22,7 @@ exports.login = async (req, res) => {
     });
   });
 };
+
 exports.getUsers = async (req, res) => {
   const users = await User.find();
   if (users == null) {

@@ -4,10 +4,9 @@ const path = require("path");
 const database = require("./config/database");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-
 dotenv.config();
-const app = express();
 
+const app = express();
 app.use(morgan());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +25,6 @@ app.use(require("./routes"));
     var user = new User({ username, password });
     await user.save();
   }
-  // seeding data
+  
   app.listen(process.env.PORT);
 })();
